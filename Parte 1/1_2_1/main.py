@@ -20,7 +20,7 @@ a = "Informática"
 #Objetos mutáveis
 #nome (variável)  | objeto
 
-a = [1,2,3]
+a = [1,2,3,3]
 b = a
 b.append(4)
 print("Valor: ", a)
@@ -30,3 +30,4 @@ print("Identificador: ", id(b))
 a.append(5)
 print("Valor: ", a)
 print("Identificador: ", id(a))
+

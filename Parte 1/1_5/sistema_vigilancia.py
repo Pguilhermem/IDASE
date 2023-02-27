@@ -1,4 +1,13 @@
 import time
+import logging
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s %(levelname)s %(message)s',
+    datefmt='%d-%m-%Y %H:%M:%S',
+    filename='system_log.txt'
+)
+
 
 # Função lambda para converter os dados em um formato padrão
 padronizar_dados = lambda dados: {"id": dados["id"], "temperatura": dados["temperatura"], "movimento": dados["movimento"]}
@@ -23,12 +32,13 @@ def medir_tempo_de_execucao(func):
         start_time = time.time()
         result = func(*args, **kwargs)
         end_time = time.time()
-        print(f"Tempo de execução: {end_time - start_time:.6f} segundos")
+        logging.info(f"Tempo gasto para executar o programa: {end_time - start_time:.6f} segundos")
         return result
     return wrapper
 
 # Impressão do resultado na tela
 def imprimir_dados(dados):
+        logging.warning("Padroes Suspeitos:")
         for dado in dados:
-            print(f"{dado}\n")
+            logging.warning(f"{dado}")
 

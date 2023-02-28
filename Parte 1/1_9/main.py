@@ -19,6 +19,7 @@ class ContaBancaria:
             time.sleep(0.1)
             self.saldo = saldo_atual
             print(f'Transferência realizada: {valor} | Saldo atual: {self.saldo}')
+            
     
     def disparar_ordens(self,ordens):
         thread_pool = []

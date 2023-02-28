@@ -1,7 +1,6 @@
 import threading
 import time
 
-
 class ContaBancaria:
     """
     Quando o lock é utilizado, há a sincronização entre as threads do método disparar_ordens

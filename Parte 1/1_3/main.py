@@ -1,58 +1,37 @@
-from functools import reduce
+# inicializa as variáveis
+ingressos_vendidos = 0
+preco_ingresso = 50
 
-# Exemplo de map() : aplica uma função a cada elemento de uma sequência e retorna um iterador com os resultados.
-numbers = [1, 2, 3, 4, 5]
-squares = map(lambda x: x ** 2, numbers)
-print(list(squares)) # Saída: [1, 4, 9, 16, 25]
+# loop para permitir que os usuários comprem ingressos
+while True:
+    # verifica se há ingressos disponíveis
+    if ingressos_vendidos >= 100:
+        print("Desculpe, todos os ingressos já foram vendidos.")
+        break
 
-# Exemplo de filter(): cria uma lista com os elementos de uma sequência que atendem a uma determinada condição.
-numbers = [1, 2, 3, 4, 5]
-even_numbers = filter(lambda x: x % 2 == 0, numbers)
-print(list(even_numbers)) # Saída: [2, 4]
+    # pede ao usuário a quantidade de ingressos desejados
+    quantidade = int(input("Quantos ingressos você deseja comprar? "))
 
-# Exemplo de reduce(): aplica uma função a uma sequência de elementos de maneira cumulativa, de forma que o resultado é reduzido a um único valor.
-numbers = [1, 2, 3, 4, 5]
-sum_numbers = reduce(lambda x, y: x + y, numbers)
-print(sum_numbers) # Saída: 15
+    # verifica se a quantidade é válida
+    if quantidade <= 0:
+        print("Quantidade inválida. Tente novamente.")
+        continue
 
-# Exemplo de sorted(): ordena uma sequência de elementos em ordem crescente/decrescente de acordo com uma função de chave
-words = ['apple', 'banana', 'cherry', 'date']
-sorted_words = sorted(words, key=lambda w: len(w))
-print(sorted_words) # Saída: ['date', 'apple', 'banana', 'cherry']
+    # calcula o preço total dos ingressos
+    preco_total = quantidade * preco_ingresso
 
-# Exemplo de any(): verifica se pelo menos um elemento de uma sequência é True
-values = [False, False, True, False]
-print(any(values)) # Saída: True
+    # verifica se o usuário tem direito ao desconto
+    if quantidade >= 10:
+        preco_total *= 0.9
 
-# Exemplo de all(): verifica se todos os elementos de uma sequência são True.
-values = [True, True, False, True]
-print(all(values)) # Saída: False
+    # verifica se há ingressos suficientes para a compra
+    if ingressos_vendidos + quantidade > 100:
+        print("Desculpe, não há ingressos suficientes para essa compra. Há apenas",
+              100 - ingressos_vendidos, "ingressos restantes.")
+        continue
 
-# Exemplo de zip(): combina duas ou mais sequências em tuplas
-names = ['Alice', 'Bob', 'Charlie']
-ages = [25, 30, 35]
-zipped_data = zip(names, ages)
-print(list(zipped_data)) # Saída: [('Alice', 25), ('Bob', 30), ('Charlie', 35)]
+    # atualiza o número de ingressos vendidos e exibe o preço total
+    ingressos_vendidos += quantidade
+    print("O preço total da sua compra é:", preco_total)
 
-# Exemplo de enumerate(): retorna um iterador de tuplas que associa um índice a cada elemento de uma sequência
-fruits = ['apple', 'banana', 'cherry']
-for i, fruit in enumerate(fruits):
-    print(i, fruit)
-# Saída:
-# 0 apple
-# 1 banana
-# 2 cherry
-
-# Exemplo de max(): retorna o maior elemento de uma sequência.
-
-numbers = [1, 5, 2, 4, 3]
-print(max(numbers)) # Saída: 5
-
-# Exemplo de min(): retorna o menor elemento de uma sequência.
-
-numbers = [1, 5, 2, 4, 3]
-print(min(numbers)) # Saída: 1
-
-# Exemplo de sum(): retorna a soma dos elementos de uma sequência.
-numbers = [1, 2, 3, 4, 5]
-print(sum(numbers)) # Saída: 15
+print("Fim do programa.")

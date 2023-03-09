@@ -1,40 +1,34 @@
-from pessoa import Pessoa
+from sistema_vigilancia import medir_tempo_de_execucao, processar_dados, detectar_padroes, imprimir_dados
 
-# Criando um objeto Pessoa
-p = Pessoa("João", 30)
 
-# Obtendo o nome e a idade da pessoa
-print(p.get_nome()) # Saída: "João"
-print(p.get_idade()) # Saída: 30
+# Aplicando o decorador para medir o tempo de execução do programa
+@medir_tempo_de_execucao
+def sistema_vigilancia(dados_sensores):
+    # Carregando dados de sensores de um banco de dados
+    dados = dados_sensores
 
-# Tentando atribuir um novo nome inválido
-try:
-    p.set_nome(123)
-except TypeError as e:
-    print(e) # Saída: "O nome deve ser uma string."
+    # Processando os dados usando um iterador e uma função lambda
+    saida_intermediaria = processar_dados(dados, 2)
 
-# Tentando atribuir uma nova idade inválida
-try:
-    p.set_idade(-10)
-except ValueError as e:
-    print(e) # Saída: "A idade deve ser um número inteiro positivo."
+    # Detectando padrões suspeitos usando um gerador e uma função lambda
+    padroes_suspeitos = detectar_padroes(saida_intermediaria)
 
-# Atribuindo um novo nome e idade válidos
-p.set_nome("Maria")
-p.set_idade(25)
+    # Gravando os dados de saída em um arquivo usando uma função de alta ordem
+    imprimir_dados(padroes_suspeitos)
 
-# Obtendo o novo nome e idade da pessoa
-print(p.get_nome()) # Saída: "Maria"
-print(p.get_idade()) # Saída: 25
 
-# Tentando atribuir um novo nome inválido
-try:
-    p.set_nome(123)
-except TypeError as e:
-    print(e) # Saída: "O nome deve ser uma string."
+# Dados de sensores de exemplo
+dados_sensores = [
+    {"id": 1, "temperatura": 22.3, "movimento": True},
+    {"id": 2, "temperatura": 25.6, "movimento": False},
+    {"id": 3, "temperatura": 20.1, "movimento": True},
+    {"id": 4, "temperatura": 21.8, "movimento": False},
+    {"id": 5, "temperatura": 24.5, "movimento": True},
+    {"id": 6, "temperatura": 23.7, "movimento": False},
+    {"id": 7, "temperatura": 19.8, "movimento": True},
+    {"id": 8, "temperatura": 20.9, "movimento": False},
+    {"id": 9, "temperatura": 23.1, "movimento": True},
+    {"id": 10, "temperatura": 24.8, "movimento": False},
+]
 
-# Tentando criar um objeto com dados inválidos
-try:
-    p = Pessoa(345,-10)
-except Exception as e:
-    print(e)
+sistema_vigilancia(dados_sensores)

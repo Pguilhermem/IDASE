@@ -1,28 +1,58 @@
-import random
-# Definindo uma função geradora que retorna amostras em tempo real
-def gerador_amostras():
-    while True:
-        # Simulando uma variação aleatória na grandeza monitorada
-        sample = random.gauss(50, 10)
-        yield sample
+from functools import reduce
 
-# Definindo uma rotina de validação que determina se uma amostra é válida
-def validador_amostras(sample):
-    # Determinando se a amostra está dentro de um intervalo de tolerância
-    if abs(sample - 50) <= 10:
-        return True
-    else:
-        return False
+# Exemplo de map() : aplica uma função a cada elemento de uma sequência e retorna um iterador com os resultados.
+numbers = [1, 2, 3, 4, 5]
+squares = map(lambda x: x ** 2, numbers)
+print(list(squares)) # Saída: [1, 4, 9, 16, 25]
 
-# Criando um objeto gerador a partir da função
-sample_values = gerador_amostras()
+# Exemplo de filter(): cria uma lista com os elementos de uma sequência que atendem a uma determinada condição.
+numbers = [1, 2, 3, 4, 5]
+even_numbers = filter(lambda x: x % 2 == 0, numbers)
+print(list(even_numbers)) # Saída: [2, 4]
 
-# Usando um loop for para gerar 10 amostras e avaliar a qualidade de cada amostra
-for i in range(10):
-    # Obtendo a próxima amostra do gerador
-    sample = next(sample_values)
-    # Avaliando a qualidade da amostra usando a rotina de validação
-    if validador_amostras(sample):
-        print(f"Amostra {i+1}: {sample:.2f} - Válida")
-    else:
-        print(f"Amostra {i+1}: {sample:.2f} - Inválida")
+# Exemplo de reduce(): aplica uma função a uma sequência de elementos de maneira cumulativa, de forma que o resultado é reduzido a um único valor.
+numbers = [1, 2, 3, 4, 5]
+sum_numbers = reduce(lambda x, y: x + y, numbers)
+print(sum_numbers) # Saída: 15
+
+# Exemplo de sorted(): ordena uma sequência de elementos em ordem crescente/decrescente de acordo com uma função de chave
+words = ['apple', 'banana', 'cherry', 'date']
+sorted_words = sorted(words, key=lambda w: len(w))
+print(sorted_words) # Saída: ['date', 'apple', 'banana', 'cherry']
+
+# Exemplo de any(): verifica se pelo menos um elemento de uma sequência é True
+values = [False, False, True, False]
+print(any(values)) # Saída: True
+
+# Exemplo de all(): verifica se todos os elementos de uma sequência são True.
+values = [True, True, False, True]
+print(all(values)) # Saída: False
+
+# Exemplo de zip(): combina duas ou mais sequências em tuplas
+names = ['Alice', 'Bob', 'Charlie']
+ages = [25, 30, 35]
+zipped_data = zip(names, ages)
+print(list(zipped_data)) # Saída: [('Alice', 25), ('Bob', 30), ('Charlie', 35)]
+
+# Exemplo de enumerate(): retorna um iterador de tuplas que associa um índice a cada elemento de uma sequência
+fruits = ['apple', 'banana', 'cherry']
+for i, fruit in enumerate(fruits):
+    print(i, fruit)
+# Saída:
+# 0 apple
+# 1 banana
+# 2 cherry
+
+# Exemplo de max(): retorna o maior elemento de uma sequência.
+
+numbers = [1, 5, 2, 4, 3]
+print(max(numbers)) # Saída: 5
+
+# Exemplo de min(): retorna o menor elemento de uma sequência.
+
+numbers = [1, 5, 2, 4, 3]
+print(min(numbers)) # Saída: 1
+
+# Exemplo de sum(): retorna a soma dos elementos de uma sequência.
+numbers = [1, 2, 3, 4, 5]
+print(sum(numbers)) # Saída: 15

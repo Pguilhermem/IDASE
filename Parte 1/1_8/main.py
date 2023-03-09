@@ -1,4 +1,6 @@
-from banco import Banco
+from pessoas import Estudante, Trabalhador
 
-Banco1=Banco(1234)
-Banco1.atendimento()
+pessoas = [Estudante("João", "Engenharia"),Trabalhador("Marcelo","Apple")]
+
+for p in pessoas:
+    p.falar()

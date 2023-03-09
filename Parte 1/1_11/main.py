@@ -1,15 +1,18 @@
-from processamento_imagens import ProcessamentoImagens
-import time
-if __name__ == '__main__':
-    inicial = time.perf_counter()
-    diretorio_entrada = "faces"
-    diretorio_saida = "imagens_processadas"
-    num_processos = 2
-    processador = ProcessamentoImagens(diretorio_entrada,diretorio_saida, num_processos)
-    infos = processador.inicia_processamento()
-    if infos["erros"]:
-        print("O processamento das seguintes imagens retornaram erros:")
-        for e in infos["erros"]:
-            print(e)
-    else:
-        print(f"Processamento de {infos['num_imgs']} imagens concluído com sucesso em {time.perf_counter()-inicial:.2f} segundos!")
+import asyncio
+
+async def count():
+    print("Um")
+    await asyncio.sleep(1)
+    print("Dois")
+
+async def main():
+    await asyncio.gather(count(), count(), count())
+
+if __name__ == "__main__":
+    import time
+    tempo_inicial = time.perf_counter()
+    asyncio.run(main())
+    tempo_gasto = time.perf_counter() - tempo_inicial
+    print(f"{__file__} executado em {tempo_gasto:0.2f} segundos.")
+
+

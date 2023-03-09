@@ -1,33 +1,63 @@
-#Objetos imutáveis
+#Exibindo os elementos de uma tupla
+tupla = (1, 2, 3, 4, 5)
+print(tupla)
 
-#nome (variável)  | objeto
+#Acessando elementos de uma lista 
+lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+primeiro_elemento = lista[0]
+ultimo_elemento = lista[-1]
+print(primeiro_elemento, ultimo_elemento)
 
-a = 3 
-b = a
-print("Valor: ", a)
-print("Identificador de a: ", id(a))
-print("Identificador de b antes da mudança: ", id(b))
-b = 4
-print("Identificador de b após a mudança: ", id(b))
+#Acessando uma sublista -> lista[início:fim:passo]
+sublista1 = lista[1:8:2]
+print(sublista1)
 
-a += 3
+sublista2 = lista[10:2:-2]
+print(sublista2)
 
-print("Valor: ", a)
-print("Identificador: ", id(a))
+sublista3 = lista[10::-1]
+print(sublista3)
 
-a = "Informática"
+#Modificando elementos de uma lista
+lista = [1, 2, 3, 4, 5]
+lista[0] = 10
+print(lista)
 
-#Objetos mutáveis
-#nome (variável)  | objeto
 
-a = [1,2,3,3]
-b = a
-b.append(4)
-print("Valor: ", a)
-print("Identificador: ", id(a))
-print("Identificador: ", id(b))
+#Exibindo os elementos de um dicionário
+dicionario = {"nome": "João", "idade": 30, "cidade": "São Paulo"}
+print(dicionario)
 
-a.append(5)
-print("Valor: ", a)
-print("Identificador: ", id(a))
+#Acessando elementos de um dicionário
+dicionario = {"nome": "João", "idade": 30, "cidade": "São Paulo"}
+idade = dicionario["idade"]
+print(idade)
 
+#Modificando elementos de um dicionário
+dicionario = {"nome": "João", "idade": 30, "cidade": "São Paulo"}
+dicionario["idade"] = 40
+print(dicionario)
+
+#Exibindo os elementos de um conjunto
+conjunto = {1, 2, 3, 4, 5}
+print(conjunto)
+
+#Adicionando elementos em um conjunto
+conjunto = {1, 2, 3}
+conjunto.add(4)
+print(conjunto)
+
+#Removendo elementos de um conjunto
+conjunto = {1, 2, 3, 4}
+conjunto.remove(4)
+print(conjunto)
+
+#Usando métodos de conjunto para realizar operações em conjuntos
+conjunto1 = {1, 2, 3, 4, 5}
+conjunto2 = {4, 5, 6, 7, 8}
+uniao = conjunto1.union(conjunto2)
+intersecao = conjunto1.intersection(conjunto2)
+diferenca = conjunto1.difference(conjunto2)
+print("União:", uniao)
+print("Interseção:", intersecao)
+print("Diferença:", diferenca)

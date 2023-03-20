@@ -9,36 +9,47 @@ logging.basicConfig(
 )
 
 
-# Função lambda para converter os dados em um formato padrão
-padronizar_dados = lambda dados: {"id": dados["id"], "temperatura": dados["temperatura"], "movimento": dados["movimento"]}
-
-# Iterador para processar os dados em lotes e gerar dados de saída intermediários
-def processar_dados(dados, tamanho_lote):
+def gerador_lotes(dados, tamanho_lote):
+    """
+    Geração de lotes de dados para processamentos parciais
+    :param dados: lista de dicionários contendo os dados
+    : tamanho_lote: tamanho dos lotes gerados
+    """
     for i in range(0, len(dados), tamanho_lote):
         lote = dados[i:i+tamanho_lote]
-        saida = [padronizar_dados(dado) for dado in lote]
-        yield saida
+        yield lote
 
-# Gerador para filtrar os dados intermediários e detectar padrões suspeitos
-def detectar_padroes(dados):
-    for lote in dados:
-        padroes_suspeitos = filter(lambda dado: dado["temperatura"] > 23 and dado["movimento"], lote)
+
+def detectar_padroes(lotes):
+    """
+    Buscar de padrões suspeitos nos lotes
+    :param lotes: lotes a serem processados
+    """
+    for lote in lotes:
+        padroes_suspeitos = filter(
+            lambda dado: dado["temperatura"] > 23 and dado["movimento"], lote)
         for padrao in padroes_suspeitos:
             yield padrao
 
-# Decorador para medir o tempo de execução do programa
+
+def imprimir_dados(padroes_suspeitos):
+    """
+    Gravação de resultados
+    :param padrões suspeitos
+    """
+    for padrao_suspeito in padroes_suspeitos:
+        logging.warning(f"Padrao suspeito detectado: {padrao_suspeito}")
+
+
 def medir_tempo_de_execucao(func):
+    """
+    Decorador para medição de tempo
+    """
     def wrapper(*args, **kwargs):
         start_time = time.time()
         result = func(*args, **kwargs)
         end_time = time.time()
-        logging.info(f"Tempo gasto para executar o programa: {end_time - start_time:.6f} segundos")
+        logging.info(
+            f"Tempo gasto para executar o programa: {end_time - start_time:.6f} segundos")
         return result
     return wrapper
-
-# Impressão do resultado na tela
-def imprimir_dados(dados):
-        logging.warning("Padroes Suspeitos:")
-        for dado in dados:
-            logging.warning(f"{dado}")
-

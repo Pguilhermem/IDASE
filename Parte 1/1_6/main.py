@@ -1,4 +1,4 @@
-from sistema_vigilancia import medir_tempo_de_execucao, processar_dados, detectar_padroes, imprimir_dados
+from sistema_vigilancia import medir_tempo_de_execucao, gerador_lotes, detectar_padroes, imprimir_dados
 
 
 # Aplicando o decorador para medir o tempo de execução do programa
@@ -7,13 +7,13 @@ def sistema_vigilancia(dados_sensores):
     # Carregando dados de sensores de um banco de dados
     dados = dados_sensores
 
-    # Processando os dados usando um iterador e uma função lambda
-    saida_intermediaria = processar_dados(dados, 2)
+    # Criação de lotes
+    lotes = gerador_lotes(dados, 2)
 
-    # Detectando padrões suspeitos usando um gerador e uma função lambda
-    padroes_suspeitos = detectar_padroes(saida_intermediaria)
+    # Detecção de padrões suspeitos
+    padroes_suspeitos = detectar_padroes(lotes)
 
-    # Gravando os dados de saída em um arquivo usando uma função de alta ordem
+    # Gravação dos dados de saída
     imprimir_dados(padroes_suspeitos)
 
 

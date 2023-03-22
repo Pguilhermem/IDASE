@@ -6,7 +6,6 @@ class Pessoa:
         print("Olá!")
     
 
-
 class Estudante(Pessoa):
     def __init__(self, nome, curso):
         super().__init__(nome)

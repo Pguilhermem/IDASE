@@ -1,18 +1,32 @@
-import time
 import logging
+from time import time
 
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.INFO,
     format='%(asctime)s %(levelname)s %(message)s',
-    datefmt='%d-%m-%Y %H:%M:%S',
+    datefmt='%d/%m/%Y %H:%M:%S',
     filename='system_log.txt'
 )
 
 
+def medir_tempo_execucao(func):
+    """
+    Decorador para medir tempo de execução
+    """
+    def wrapper(*args, **kwargs):
+        tempo_inicial = time()
+        result = func(*args, **kwargs)
+        tempo_exec = time() - tempo_inicial
+        logging.info(
+            f"Tempo gasto para a execucao do programa: {tempo_exec:.7f} segundos.")
+        return result
+    return wrapper
+
+
 def gerador_lotes(dados, tamanho_lote):
     """
-    Geração de lotes de dados para processamentos parciais
-    :param dados: lista de dicionários contendo os dados
+    Geração de lotes dados para processamentos parciais
+    : param dados: lista de dicionários contando os dados
     : tamanho_lote: tamanho dos lotes gerados
     """
     for i in range(0, len(dados), tamanho_lote):
@@ -20,10 +34,10 @@ def gerador_lotes(dados, tamanho_lote):
         yield lote
 
 
-def detectar_padroes(lotes):
+def detectar_padroes_suspeitos(lotes):
     """
-    Buscar de padrões suspeitos nos lotes
-    :param lotes: lotes a serem processados
+    Busca de padrões suspeitos nos lotes
+    :param lotes: iterador para os lotes de dados a serem processados
     """
     for lote in lotes:
         padroes_suspeitos = filter(
@@ -32,24 +46,21 @@ def detectar_padroes(lotes):
             yield padrao
 
 
-def imprimir_dados(padroes_suspeitos):
+def registrar_eventos(padroes_suspeitos):
     """
-    Gravação de resultados
-    :param padrões suspeitos
+    Registro de eventos
+    : param padroes_suspeitos: iterador para os padrões suspeitos
     """
-    for padrao_suspeito in padroes_suspeitos:
-        logging.warning(f"Padrao suspeito detectado: {padrao_suspeito}")
+    for padrao in padroes_suspeitos:
+        logging.warning(f"Padrao suspeito detectado: {padrao}")
 
 
-def medir_tempo_de_execucao(func):
+@medir_tempo_execucao
+def sistema_vigilancia(dados):
     """
-    Decorador para medição de tempo
+    Função que encapsula todas as funcionalidades do sistema de vigilância
+    :param dados: lista de dicionários com os dados de entrada do sistema
     """
-    def wrapper(*args, **kwargs):
-        start_time = time.time()
-        result = func(*args, **kwargs)
-        end_time = time.time()
-        logging.info(
-            f"Tempo gasto para executar o programa: {end_time - start_time:.6f} segundos")
-        return result
-    return wrapper
+    lotes = gerador_lotes(dados, 2)
+    padroes_suspeito = detectar_padroes_suspeitos(lotes)
+    registrar_eventos(padroes_suspeito)

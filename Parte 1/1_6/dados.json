@@ -1,0 +1,52 @@
+[
+    {
+        "hora": "15/01/2023 23:50:00",
+        "temperatura": 22.3,
+        "movimento": true
+    },
+    {
+        "hora": "15/01/2023 23:55:00",
+        "temperatura": 25.6,
+        "movimento": false
+    },
+    {
+        "hora": "16/01/2023 00:00:00",
+        "temperatura": 20.1,
+        "movimento": true
+    },
+    {
+        "hora": "16/01/2023 00:05:00",
+        "temperatura": 21.8,
+        "movimento": false
+    },
+    {
+        "hora": "16/01/2023 00:10:00",
+        "temperatura": 24.5,
+        "movimento": true
+    },
+    {
+        "hora": "16/01/2023 00:15:00",
+        "temperatura": 23.7,
+        "movimento": false
+    },
+    {
+        "hora": "16/01/2023 00:20:00",
+        "temperatura": 19.8,
+        "movimento": true
+    },
+    {
+        "hora": "16/01/2023 00:25:00",
+        "temperatura": 20.9,
+        "movimento": false
+    },
+    {
+        "hora": "16/01/2023 00:30:00",
+        "temperatura": 23.1,
+        "movimento": true
+    },
+    {
+        "hora": "16/01/2023 00:35:00",
+        "temperatura": 24.8,
+        "movimento": false
+    }
+]

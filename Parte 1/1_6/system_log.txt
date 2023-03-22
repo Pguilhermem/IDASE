@@ -1,0 +1,2 @@
+20-03-2023 18:32:59 WARNING Padrao suspeito detectado: {'hora': '16/01/2023 00:10:00', 'temperatura': 24.5, 'movimento': True}
+20-03-2023 18:32:59 WARNING Padrao suspeito detectado: {'hora': '16/01/2023 00:30:00', 'temperatura': 23.1, 'movimento': True}

@@ -1,7 +1,7 @@
 import os
 import multiprocessing
-import shutil
 import cv2
+
 
 class ProcessamentoImagens:
     """
@@ -32,7 +32,6 @@ class ProcessamentoImagens:
         :param num_processos: Número de processos que serão criados para processar as imagens. (padrão: 4)
         """
         self.diretorio_saida = diretorio_saida
-        self.limpar_diretorio_saida()
         self.diretorio_entrada = diretorio_entrada
         self.arquivos = [f for f in os.listdir(self.diretorio_entrada)]
         self.num_processos = num_processos
@@ -97,18 +96,6 @@ class ProcessamentoImagens:
             p.join()
 
         return self.infos
-
-    def limpar_diretorio_saida(self):
-        file_path = ""
-        for filename in os.listdir(self.diretorio_saida):
-            file_path = os.path.join(self.diretorio_saida, filename)
-        try:
-            if os.path.isfile(file_path) or os.path.islink(file_path):
-                os.unlink(file_path)
-            elif os.path.isdir(file_path):
-                shutil.rmtree(file_path)
-        except Exception as e:
-            print('Erro ao excluir arquivos. Motivo: %s' % (e))
 
 
 if __name__ == '__main__':

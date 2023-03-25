@@ -101,16 +101,20 @@ class ProcessamentoImagens:
 if __name__ == '__main__':
     import time
     import sys
+
     try:
         num_processos = int(sys.argv[1])
     except Exception:
         num_processos = 1
+
     inicial = time.perf_counter()
+
     diretorio_entrada = "faces"
     diretorio_saida = "imagens_processadas"
-    processador = ProcessamentoImagens(
-        diretorio_entrada, diretorio_saida, num_processos)
+
+    processador = ProcessamentoImagens(diretorio_entrada, diretorio_saida, num_processos)
     infos = processador.inicia_processamento()
+
     if infos["erros"]:
         print("O processamento das seguintes imagens retornaram erros:")
         for e in infos["erros"]:

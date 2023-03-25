@@ -1,7 +1,7 @@
 import os
 import multiprocessing
+import shutil
 import cv2
-
 
 class ProcessamentoImagens:
     """
@@ -46,21 +46,25 @@ class ProcessamentoImagens:
         :param path_img: Caminho para a imagem a ser processada.
         """
         try:
-            imagem = cv2.imread(os.path.join(self.diretorio_entrada, path_img))
-            classificador = cv2.CascadeClassifier(
+            imagem = cv2.imread(os.path.join(  # pylint: disable=no-member
+                self.diretorio_entrada, path_img))  # pylint: disable=no-member
+            classificador = cv2.CascadeClassifier(  # pylint: disable=no-member
                 "multiprocessing_env\Lib\site-packages\cv2\data\haarcascade_frontalface_default.xml")
 
-            cinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
+            cinza = cv2.cvtColor(  # pylint: disable=no-member
+                imagem, cv2.COLOR_BGR2GRAY)   # pylint: disable=no-member
             faces = classificador.detectMultiScale(
                 cinza, scaleFactor=1.1, minNeighbors=5)
 
             for (x, y, w, h) in faces:
-                cv2.rectangle(imagem, (x, y), (x + w, y + h), (0, 255, 0), 2)
+                cv2.rectangle(imagem, (x, y), (x + w, y + h),  # pylint: disable=no-member
+                              (0, 255, 0), 2)
 
-            cv2.imwrite(f"{self.diretorio_saida}/{path_img}", imagem)
+            cv2.imwrite(f"{self.diretorio_saida}/{path_img}",  # pylint: disable=no-member
+                        imagem)
 
-        except Exception as e:
-            self.infos["erros"].append({path_img: e.args})
+        except Exception as _e:
+            self.infos["erros"].append({path_img: _e.args})
 
     def processa_lote(self, fila: multiprocessing.Queue) -> None:
         """

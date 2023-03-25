@@ -38,7 +38,8 @@ class Banco():
                 elif op == 3:
                     break
                 else:
-                    pass
+                    print("Opção inválida")
+                    continue
             except Exception as e:
                 print("Erro no menu de atendimento", e.args)
 
@@ -55,11 +56,11 @@ class Banco():
                     num_conta_usuario = input(
                         "Digite o Numero de sua Conta (q para sair): ")
                     conta_usuario = self._busca_conta(int(num_conta_usuario))
-                except Exception as e:
+                except Exception as _e:
                     if num_conta_usuario == 'q':
                         return
                     else:
-                        print(f"Erro na busca de dados da conta: {e.args}")
+                        print(f"Erro na busca de dados da conta: {_e.args}")
 
             senha_usuario = int(input("Digite sua senha: "))
             if (conta_usuario.valida_senha(senha_usuario)):
@@ -90,10 +91,13 @@ class Banco():
                                       conta_usuario.get_num_cartao(senha_usuario))
                             else:
                                 print("Esta conta não é do tipo corrente")
+                        elif op == 6:
+                            continue
                         else:
-                            pass
-                    except Exception as e:
-                        print("Erro no atendimento ao cliente: ", e.args)
+                            print("Opção inválida")
+                            continue
+                    except Exception as _e:
+                        print("Erro no atendimento ao cliente: ", _e.args)
 
     def atendimento_gerente(self):
         """

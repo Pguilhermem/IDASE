@@ -1,4 +1,4 @@
 from banco import Banco
 
-Banco1=Banco(1234)
-Banco1.atendimento()
+banco1=Banco(1234)
+banco1.atendimento()

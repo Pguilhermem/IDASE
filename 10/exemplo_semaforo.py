@@ -1,7 +1,8 @@
 import threading
 import time
 
-sem = threading.Semaphore(2)
+sem = threading.Semaphore(3)
+
 
 def worker():
     sem.acquire()
@@ -9,6 +10,7 @@ def worker():
     time.sleep(1)
     sem.release()
 
-for i in range(5):
+
+for i in range(10):
     t = threading.Thread(target=worker, name=f'Thread {i}')
     t.start()

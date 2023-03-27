@@ -5,6 +5,7 @@ sem = threading.Semaphore(3)
 
 
 def worker():
+    time.sleep(1)
     sem.acquire()
     print('Iniciando a thread', threading.current_thread().name)
     time.sleep(1)

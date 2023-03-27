@@ -1,11 +1,9 @@
 import threading
 
-
 def worker(barrier):
     print('Trabalhador iniciado')
     barrier.wait()
     print('Trabalhador continuando')
-
 
 barrier = threading.Barrier(3)
 

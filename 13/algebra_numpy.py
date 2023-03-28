@@ -14,7 +14,6 @@ a = np.array([[2, 3], [4, 5]])
 b = np.array([8, 13])
 x = np.linalg.solve(a, b)
 
-
 matriz2 = np.array([[1, 20, 3], [4, 5, 6], [72, 8, 9]])
 # Calculando autovalores e autovetores
 autovalores, autovetores = np.linalg.eig(matriz2)
@@ -23,7 +22,6 @@ autovalores, autovetores = np.linalg.eig(matriz2)
 det = np.linalg.det(matriz2)
 
 # Cálculo da inversa
-
 matriz2_inv = np.linalg.inv(matriz2)
 
 # Imprimindo os resultados

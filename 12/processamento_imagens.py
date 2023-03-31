@@ -47,8 +47,9 @@ class ProcessamentoImagens:
         try:
             imagem = cv2.imread(os.path.join(  # pylint: disable=no-member
                 self.diretorio_entrada, path_img))  # pylint: disable=no-member
-            classificador = cv2.CascadeClassifier(  # pylint: disable=no-member
-                "multiprocessing_env\Lib\site-packages\cv2\data\haarcascade_frontalface_default.xml")
+            xml_classificador = os.path.join(os.path.relpath(
+                cv2.__file__).replace('__init__.py', ''), 'data\haarcascade_frontalface_default.xml')
+            classificador = cv2.CascadeClassifier(xml_classificador) # pylint: disable=no-member
 
             cinza = cv2.cvtColor(  # pylint: disable=no-member
                 imagem, cv2.COLOR_BGR2GRAY)   # pylint: disable=no-member

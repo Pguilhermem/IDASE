@@ -5,6 +5,7 @@ temperaturas = np.genfromtxt(
     'temperaturas.csv', delimiter=',', skip_header=1, usecols=range(1, 13))
 
 print(temperaturas)
+
 # Indexação para obter os dados de temperaturas de uma cidade específica
 cidade1 = temperaturas[0, :]
 

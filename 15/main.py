@@ -4,19 +4,20 @@ import pandas as pd
 params = {
     'filepath_or_buffer': 'dados.csv',
     'sep': ',',
-    'header': 0,
     'names': ['datahora', 'temp', 'umid', 'press'],
     'index_col': 'datahora',
     'usecols': ['datahora', 'temp', 'umid', 'press'],
-    'skiprows': [0, 1, 2],
-    'dtype': {'temp': 'float32', 'umid': 'float32'}
+    'skiprows': [0, 1],
+    'dtype': {'temp': 'float32', 'umid': 'float32'},
+    'parse_dates': ['datahora']
 }
 
 # Importa os dados do arquivo CSV para um DataFrame
 df = pd.read_csv(**params)
 
-# Trata os dados NaN
+# Tratar os valores NaN
 df_interpolado = df.interpolate(method='linear')
 
-# Exporta os dados do dataframe para um arquivo csv
-df_interpolado.to_csv('df_interpolado.csv', index=True)
+# Exportar arquivo tratado
+df_interpolado.to_csv('df_interpolado.csv', index=True,
+                      date_format='%d/%m/%Y %H:%M:%S')

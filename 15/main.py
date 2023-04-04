@@ -14,7 +14,8 @@ params = {
 
 # Importa os dados do arquivo CSV para um DataFrame
 df = pd.read_csv(**params)
-
+print(df)
+df.to_clipboard()
 # Tratar os valores NaN
 df_interpolado = df.interpolate(method='linear')
 

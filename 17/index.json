@@ -1,0 +1,12 @@
+{
+    "idade": {
+        "Ana": 25,
+        "Carlos": 31,
+        "João": 20
+    },
+    "cidade": {
+        "Ana": "São Paulo",
+        "Carlos": "Rio de Janeiro",
+        "João": "Belo Horizonte"
+    }
+}

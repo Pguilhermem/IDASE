@@ -1,0 +1,80 @@
+[
+    {
+        "timestamp": "2022-04-01 00:00:00",
+        "temperatura(C)": 23.4,
+        "umidade(%)": 45.6,
+        "pressao(Pa)": 100100.0
+    },
+    {
+        "timestamp": "2022-04-01 00:01:00",
+        "temperatura(C)": 23.5,
+        "umidade(%)": null,
+        "pressao(Pa)": 100090.0
+    },
+    {
+        "timestamp": "2022-04-01 00:02:00",
+        "temperatura(C)": 23.6,
+        "umidade(%)": 44.9,
+        "pressao(Pa)": 100080.0
+    },
+    {
+        "timestamp": "2022-04-01 00:03:00",
+        "temperatura(C)": null,
+        "umidade(%)": 44.6,
+        "pressao(Pa)": 100070.0
+    },
+    {
+        "timestamp": "2022-04-01 00:04:00",
+        "temperatura(C)": 23.4,
+        "umidade(%)": 45.6,
+        "pressao(Pa)": 100100.0
+    },
+    {
+        "timestamp": "2022-04-01 00:05:00",
+        "temperatura(C)": 23.5,
+        "umidade(%)": null,
+        "pressao(Pa)": 100090.0
+    },
+    {
+        "timestamp": "2022-04-01 00:06:00",
+        "temperatura(C)": 23.6,
+        "umidade(%)": 44.9,
+        "pressao(Pa)": 100080.0
+    },
+    {
+        "timestamp": "2022-04-01 00:07:00",
+        "temperatura(C)": null,
+        "umidade(%)": 44.6,
+        "pressao(Pa)": 100070.0
+    },
+    {
+        "timestamp": "2022-04-01 00:08:00",
+        "temperatura(C)": 23.4,
+        "umidade(%)": 45.6,
+        "pressao(Pa)": null
+    },
+    {
+        "timestamp": "2022-04-01 00:09:00",
+        "temperatura(C)": 23.5,
+        "umidade(%)": null,
+        "pressao(Pa)": 100090.0
+    },
+    {
+        "timestamp": "2022-04-01 00:10:00",
+        "temperatura(C)": 23.6,
+        "umidade(%)": 44.9,
+        "pressao(Pa)": 100080.0
+    },
+    {
+        "timestamp": "2022-04-01 00:11:00",
+        "temperatura(C)": null,
+        "umidade(%)": 44.6,
+        "pressao(Pa)": 100070.0
+    },
+    {
+        "timestamp": "2022-04-01 00:12:00",
+        "temperatura(C)": 23.4,
+        "umidade(%)": 45.6,
+        "pressao(Pa)": 100100.0
+    }
+]

@@ -14,7 +14,6 @@ params = {
 # Importa os dados do arquivo do Excel para um dicionário de dataframes
 dfs = pd.read_excel(**params)
 
-
 # Exportar o arquivo do excel tratado
 with pd.ExcelWriter('dados_tratados.xlsx') as writer:  # pylint: disable=abstract-class-instantiated
     for sheetname, df in dfs.items():

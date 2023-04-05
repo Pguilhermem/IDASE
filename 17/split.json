@@ -1,0 +1,25 @@
+{
+    "index": [
+        "Ana",
+        "Carlos",
+        "João"
+    ],
+    "columns": [
+        "idade",
+        "cidade"
+    ],
+    "data": [
+        [
+            25,
+            "São Paulo"
+        ],
+        [
+            31,
+            "Rio de Janeiro"
+        ],
+        [
+            20,
+            "Belo Horizonte"
+        ]
+    ]
+}

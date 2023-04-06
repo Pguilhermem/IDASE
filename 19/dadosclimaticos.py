@@ -40,6 +40,7 @@ class DadosClimaticos:
         except Exception as _e:
             logging.exception(f"Erro ao armazenar os dados: {_e}")
         finally:
+            dados_historicos = dados_historicos.drop_duplicates()
             dados_historicos.to_csv('dados_climaticos.csv',
                                     index=False, date_format='%d/%m/%Y %H:%M:%S', float_format='%.2f')
 

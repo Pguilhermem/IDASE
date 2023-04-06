@@ -12,6 +12,7 @@ class DadosClimaticos:
 
     def load_data_new_data(self) -> pd.DataFrame:
         response = requests.get(self.url)
+        response.raise_for_status()
         return pd.DataFrame(pd.json_normalize(
             response.json()), columns=['dt', 'name', 'main.temp', 'wind.speed', 'main.pressure'])
 
@@ -37,7 +38,7 @@ class DadosClimaticos:
         except FileNotFoundError:
             dados_historicos = nd
         except Exception as _e:
-            logging.exception(f"Erro ao atualizar base de dados: {_e}")
+            logging.exception(f"Erro ao armazenar os dados: {_e}")
         finally:
             dados_historicos.to_csv('dados_climaticos.csv',
                                     index=False, date_format='%d/%m/%Y %H:%M:%S', float_format='%.2f')

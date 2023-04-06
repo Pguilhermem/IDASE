@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<root>
+  <row>
+    <nome>Ana</nome>
+    <idade>25</idade>
+    <cidade>São Paulo</cidade>
+  </row>
+  <row>
+    <nome>Carlos</nome>
+    <idade>31</idade>
+    <cidade>Rio de Janeiro</cidade>
+  </row>
+  <row>
+    <nome>João</nome>
+    <idade>20</idade>
+    <cidade>Belo Horizonte</cidade>
+  </row>
+</root>

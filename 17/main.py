@@ -1,5 +1,5 @@
 import pandas as pd
-import datetime as dt
+
 # Importa os dados do arquivo do Excel para um dicionário de dataframes
 tipos = ['records', 'index', 'columns', 'split', 'values']
 

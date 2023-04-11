@@ -10,7 +10,7 @@ class DadosClimaticos:
         self.lon = lon
         self.url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}"
 
-    def load_data_new_data(self) -> pd.DataFrame:
+    def load_new_data(self) -> pd.DataFrame:
         response = requests.get(self.url)
         response.raise_for_status()
         return pd.DataFrame(pd.json_normalize(
@@ -45,6 +45,6 @@ class DadosClimaticos:
                                     index=False, date_format='%d/%m/%Y %H:%M:%S', float_format='%.2f')
 
     def update_data(self):
-        novo_df = self.load_data_new_data()
+        novo_df = self.load_new_data()
         transf_df = self.transform_data(novo_df)
         self.store_data(transf_df)

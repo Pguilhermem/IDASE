@@ -11,6 +11,7 @@ logging.basicConfig(filename='erros.log',
                     level=logging.ERROR)
 
 api_key = os.getenv('API_KEY')
+
 lat = -21.7642
 lon = -43.3496
 

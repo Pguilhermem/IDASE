@@ -5,8 +5,8 @@ df = pd.read_csv('vendas.csv')
 print("=============Quantidade média vendida de cada produto ============\r\n",
       df.groupby('Produto')['Quantidade'].mean())
 
-print("=============Quantidade vendida em cada loja ============\r\n",
-      df.groupby('Loja')['Quantidade'].sum())
+print("=============Quantidade Média vendida em cada loja ============\r\n",
+      df.groupby('Loja')['Quantidade'].mean())
 
 print("============= Preço médio de cada produto ============\r\n",
       df.groupby('Produto')['PreçoUnitário'].mean())

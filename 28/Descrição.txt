@@ -1,0 +1,11 @@
+imagens: QRCode de um produto
+json: descrição do produto, preço de custo
+json: vendas do produto, loja, valor, cidade, estado
+
+Visualização:
+
+Selecionar produtos por numero de unidades vendidas
+- por valor absoluto vendido
+- por lucro
+- por região
+

@@ -1,0 +1,17 @@
+ID,Produto,Descrição,Fabricante,Modelo,Lote,Preço de custo
+1,Sensor de temperatura,Sensor para medir a temperatura de equipamentos,Omega Engineering,OM-CP-TCTEMP2000,Lote 123,150.00
+2,Sensor de pressão,Sensor para medir a pressão de equipamentos,Ashcroft,G17M Gauge 0-30 psi,Lote 456,85.00
+3,Sensor de vibração,Sensor para medir a vibração de equipamentos,SKF,CMSS 220HV Microlog Inspector,Lote 789,200.00
+4,Sensor de fluxo,Sensor para medir o fluxo de líquidos ou gases,Badger Meter,M-Series M5000,Lote 123,350.00
+5,Transmissor de pressão,Transmissor para medir a pressão em sistemas hidráulicos ou pneumáticos,ABB,2600T Pressure Transmitter,Lote 789,450.00
+6,Controlador de temperatura,Controlador para ajustar a temperatura de equipamentos,Watlow,SD31 Limit Controller,Lote 123,125.00
+7,Controlador de processo,Controlador para ajustar parâmetros em processos industriais,Honeywell,DC1010CR Controlador Digital,Lote 456,300.00
+8,Atuador elétrico,Atuador para mover equipamentos elétricos,Auma,SA 07.5 F35.1/CS-LB-LC-LG/EM-LSC-LTX/TS-LV Lote 789,800.00
+9,Atuador pneumático,Atuador para mover equipamentos pneumáticos,Emerson,Fisher 657-Diaphragm Actuator Size 30-70,Lote 123,400.00
+10,Atuador hidráulico,Atuador para mover equipamentos hidráulicos,Flowserve,LTEK Linear Electro-Hydraulic Actuator,Lote 456,650.00
+11,Válvula solenóide,Válvula para controlar o fluxo de líquidos ou gases,Parker,12F22C2148ACF General Purpose Solenoid Valve,Lote 789,120.00
+12,Válvula de esfera,Válvula para controlar o fluxo de líquidos ou gases,Flowserve,Atomac AKH2E-600,Lote 123,250.00
+13,Válvula borboleta,Válvula para controlar o fluxo de líquidos ou gases,Bray Controls,Resilient Seated Butterfly Valve 20-66in,Lote 456,500.00
+14,Válvula de retenção,Válvula para impedir o refluxo de líquidos ou gases,Crane Co.,Swing Check Valve Class 150-2500,Lote 789,150.00
+15,Filtro de ar,Filtro para remover impurezas do ar,Parker,Dual Flow Air Line Filter 1/4in NPT 40 CFM,Lote 123,50.00
+

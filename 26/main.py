@@ -1,8 +1,9 @@
 import os
+from datetime import datetime
+import csv
 import dotenv
 from dataconn import DBConn
-import csv
-from datetime import datetime
+
 
 dotenv.load_dotenv()
 
@@ -10,16 +11,15 @@ db = DBConn(os.getenv('POSTGRES_PASS'))
 db.init_db()
 
 # Abre o arquivo CSV com os dados dos sensores
-with open('data_sensores.csv', 'r') as csvfile:
+with open('data_sensores.csv', 'r',encoding='UTF-8') as csvfile:
     reader = csv.DictReader(csvfile)
     # Percorre as linhas do arquivo CSV
     for row in reader:
         # Insere a medição no banco de dados
         db.insert_sensor([row])
 
-
 # Abre o arquivo CSV com os dados das medições
-with open('data_medicoes.csv', 'r') as csvfile:
+with open('data_medicoes.csv', 'r',encoding='UTF-8') as csvfile:
     reader = csv.DictReader(csvfile)
     # Percorre as linhas do arquivo CSV
     for row in reader:
